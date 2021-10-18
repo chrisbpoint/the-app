@@ -1,4 +1,4 @@
-from src.app.tools.app_tool_ui import AppToolUi
+from .app_tool_ui import AppToolUi
 
 
 class AppTool:
