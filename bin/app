@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+""" Script to invoke the app application from the command line and for packaging with conda. """
+import app
+
+if __name__ == "__main__":
+    app.startup_application()
