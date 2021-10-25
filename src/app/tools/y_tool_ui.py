@@ -52,3 +52,6 @@ class YToolUi(QMainWindow):
     @property
     def stop_button(self):
         return self._stop_button
+
+    def update_acquisition_rate(self, rate):
+        self._y_plotter.set_acquisition_rate(rate)

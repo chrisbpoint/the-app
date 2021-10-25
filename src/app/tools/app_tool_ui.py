@@ -50,6 +50,10 @@ class AppToolUi(QMainWindow):
     def print_to_e_log_action(self):
         return self._print_to_e_log_action
 
+    @property
+    def tab_widget(self):
+        return self._tab_widget
+
     def show_window(self):
         self.show()
         self.setMinimumSize(self.width(), self.height())
