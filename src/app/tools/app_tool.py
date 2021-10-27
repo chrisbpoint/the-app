@@ -1,4 +1,4 @@
-from doocspie.pyqt import ELogPrinter
+from doocspie.pyqt import ELogPrinter, show_error
 
 from .app_tool_ui import AppToolUi
 from .x_tool import XTool
@@ -46,7 +46,15 @@ class AppTool:
         self._update_tools()
 
     def _update_services(self):
-        self._io_service.update()
+        try:
+            self._io_service.update()
+        except self._io_service.IOException as err:
+            self._stop_all_tools()
+            show_error(str(err))
+
+    def _stop_all_tools(self):
+        self._x_tool.ui.stop_button.click()
+        self._y_tool.ui.stop_button.click()
 
     def _update_tools(self):
         active_ui = self._app_tool_ui.tab_widget.currentWidget()

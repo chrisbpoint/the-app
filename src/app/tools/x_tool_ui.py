@@ -53,5 +53,11 @@ class XToolUi(QMainWindow):
     def stop_button(self):
         return self._stop_button
 
+    def plot_image(self, image):
+        self._x_plotter.set_image(image)
+
+    def plot_projection(self, projection):
+        self._x_plotter.set_projection(projection)
+
     def update_acquisition_rate(self, rate):
         self._x_plotter.set_acquisition_rate(rate)

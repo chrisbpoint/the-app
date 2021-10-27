@@ -18,8 +18,8 @@ def startup_application():
     application = QApplication([AppTool.APPLICATION_NAME])
     application.setWindowIcon(QIcon(os.path.dirname(os.path.abspath(__file__)) + "/resources/app.png"))
 
-    image_data = ImageData(camera_address="image_address")
-    adc_data = AdcData(adc_address="adc_address")
+    image_data = ImageData(address="image_address")
+    adc_data = AdcData(address="adc_address")
 
     concurrency_service = ConcurrencyService()
     io_service = IOService(image_data, adc_data)

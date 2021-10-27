@@ -1,22 +1,28 @@
-class ImageData:
+from collections import namedtuple
 
-    def __init__(self, camera_address):
-        self._camera_address = camera_address
-        self._to_update = None
+import numpy as np
+
+from .abstract_data import AbstractData
+
+
+class ImageData(AbstractData):
+
+    _Data = namedtuple("Data", ["x", "y"])
+
+    def __init__(self, address):
+        super().__init__(address)
+        self._image = None
+        self._projection = None
 
     @property
-    def camera_address(self):
-        return self._camera_address
+    def image(self):
+        return self._image
 
     @property
-    def to_update(self):
-        return self._to_update
+    def projection(self):
+        return self._projection
 
-    def initialize(self):
-        self._to_update = True
-
-    def reset(self):
-        self._to_update = False
-
-    def update(self, image_readout):
-        print(1)
+    def _update_data(self):
+        self._image = self._data_dict.data
+        self._projection = self._Data(np.arange(0, len(np.nansum(self._image, axis=1))),
+                                      np.nansum(self._image, axis=1))

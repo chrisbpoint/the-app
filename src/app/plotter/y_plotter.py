@@ -37,5 +37,8 @@ class YPlotter:
     def widget(self):
         return self._widget
 
+    def set_trace(self, trace):
+        self._trace.setData(x=range(len(trace)), y=trace)
+
     def set_acquisition_rate(self, rate):
         self._label.setText(f"acquisition rate: {rate:2.0f} Hz")

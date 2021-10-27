@@ -1,22 +1,15 @@
-class AdcData:
+from .abstract_data import AbstractData
 
-    def __init__(self, adc_address):
-        self._adc_address = adc_address
-        self._to_update = None
+
+class AdcData(AbstractData):
+
+    def __init__(self, address):
+        super().__init__(address)
+        self._trace = None
 
     @property
-    def adc_address(self):
-        return self._adc_address
+    def trace(self):
+        return self._trace
 
-    @property
-    def to_update(self):
-        return self._to_update
-
-    def initialize(self):
-        self._to_update = True
-
-    def reset(self):
-        self._to_update = False
-
-    def update(self, adc_readout):
-        print(2)
+    def _update_data(self):
+        self._trace = self._data_dict.data

@@ -36,4 +36,6 @@ class YTool:
             self._y_tool_ui.update_acquisition_rate(0.0)
 
     def update(self):
-        print(4)
+        if self._adc_data.is_new_data_available:
+            self._y_tool_ui.plot_trace(self._adc_data.trace)
+            self._y_tool_ui.update_acquisition_rate(self._adc_data.acquisition_rate)

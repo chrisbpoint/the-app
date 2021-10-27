@@ -30,6 +30,6 @@ class IOService:
 
     def update(self):
         if self._image_data.to_update:
-            self._image_data.update(self._read(self._image_data.camera_address))
+            self._image_data.update(self._read(self._image_data.address))
         if self._adc_data.to_update:
-            self._adc_data.update(self._read(self._adc_data.adc_address))
+            self._adc_data.update(self._read(self._adc_data.address))

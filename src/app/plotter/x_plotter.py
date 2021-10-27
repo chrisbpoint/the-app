@@ -59,5 +59,12 @@ class XPlotter:
     def widget(self):
         return self._widget
 
+    def set_image(self, image):
+        self._image.setImage(image)
+
+    def set_projection(self, projection):
+        self._projection.setData(projection.y, projection.x)
+        self._projection_plot.setYRange(*self._image_plot.getAxis("left").range, padding=0)
+
     def set_acquisition_rate(self, rate):
         self._label.setText(f"acquisition rate: {rate:2.0f} Hz")

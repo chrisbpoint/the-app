@@ -36,4 +36,7 @@ class XTool:
             self._x_tool_ui.update_acquisition_rate(0.0)
 
     def update(self):
-        print(3)
+        if self._image_data.is_new_data_available:
+            self._x_tool_ui.plot_image(self._image_data.image)
+            self._x_tool_ui.plot_projection(self._image_data.projection)
+            self._x_tool_ui.update_acquisition_rate(self._image_data.acquisition_rate)

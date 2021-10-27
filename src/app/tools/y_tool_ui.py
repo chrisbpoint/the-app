@@ -53,5 +53,8 @@ class YToolUi(QMainWindow):
     def stop_button(self):
         return self._stop_button
 
+    def plot_trace(self, trace):
+        self._y_plotter.set_trace(trace)
+
     def update_acquisition_rate(self, rate):
         self._y_plotter.set_acquisition_rate(rate)
