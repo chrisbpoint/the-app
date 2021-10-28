@@ -23,3 +23,11 @@ class LoggerPlotter:
     @property
     def widget(self):
         return self._widget
+
+    def set_time_series(self, time_series):
+        self._time_series_plot.getAxis("bottom").setStyle(showValues=True)
+        self._time_series_plot.setLabel("bottom", "Shot number")
+        self._time_series_plot.getAxis("left").setStyle(showValues=True)
+        self._time_series_plot.setLabel("left", "Values (px)")
+
+        self._time_series.setData(time_series.shots, time_series.values)

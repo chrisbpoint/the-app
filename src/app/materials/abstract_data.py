@@ -36,6 +36,7 @@ class AbstractData(ABC):
 
     def reset(self):
         self._to_update = False
+        self._is_new_data_available = False
 
     def update(self, data_readout):
         if self._to_initialize:

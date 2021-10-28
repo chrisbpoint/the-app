@@ -26,3 +26,6 @@ class LoggerToolUi(QMainWindow):
         plot_layout = QHBoxLayout()
         plot_layout.addWidget(self._logger_plotter.widget)
         self._main_layout.addLayout(plot_layout)
+
+    def plot_time_series(self, time_series):
+        self._logger_plotter.set_time_series(time_series)
